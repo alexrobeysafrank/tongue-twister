@@ -129,6 +129,13 @@ MonoBehaviour:
   playerSpeed: 10
   mouseSensitivity: 67
   cameraTarget: {fileID: 7612690270689833880}
+  deathHeight: -10
+  respawnPoint: {fileID: 0}
+  maxLives: 3
+  livesText: {fileID: 0}
+  gameOverUI: {fileID: 0}
+  timerDuration: 60
+  timerText: {fileID: 0}
 --- !u!114 &6598712526334395398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +155,9 @@ MonoBehaviour:
   maxDistance: 9999
   swingForce: 30
   swingPullForce: 8
+  Tonguelayers:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!54 &8024497760553812163
 Rigidbody:
   m_ObjectHideFlags: 0

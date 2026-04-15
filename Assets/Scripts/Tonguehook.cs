@@ -35,6 +35,7 @@ public class Tonguehook : MonoBehaviour
 
     SpringJoint joint;
     PlayerMove playerMove;
+    [SerializeField] private LayerMask Tonguelayers;
 
     /// <summary>
     /// Initializes grapple references and line renderer.
@@ -139,7 +140,7 @@ public class Tonguehook : MonoBehaviour
 
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
+        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance,Tonguelayers))
         {
             grapplePoint = hit.point;
             isGrappling = true;
