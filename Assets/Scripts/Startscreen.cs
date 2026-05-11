@@ -29,4 +29,8 @@ public class StartScreen : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit Game");
     }
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }

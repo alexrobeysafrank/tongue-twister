@@ -1,10 +1,10 @@
 ﻿/*****************************************************************************
-// File Name : Comments.cs
-// Author : Alexander R. Safranek
-// Creation Date : January 27, 2026
-// Last Updated : 3/25/2026 
-// Brief Description : Adds a grappling hook with rope physics and swing forces.
-*****************************************************************************/
+ // File Name : Comments.cs
+ // Author : Alexander R. Safranek
+ // Creation Date : January 27, 2026
+ // Last Updated : 3/25/2026 
+ // Brief Description : Adds a grappling hook with rope physics and swing forces.
+ *****************************************************************************/
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +17,7 @@ public class Tonguehook : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] Camera playerCamera;
     [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] AudioSource grappleHitSound; // <-- ADDED
 
     [Header("Grapple Settings")]
     [SerializeField] float ropeExtendSpeed = 50f;
@@ -140,12 +141,16 @@ public class Tonguehook : MonoBehaviour
 
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance,Tonguelayers))
+        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, Tonguelayers))
         {
             grapplePoint = hit.point;
             isGrappling = true;
             ropeExtending = true;
             ropeLength = 0f;
+
+            // PLAY SOUND WHEN GRAPPLE HITS
+            if (grappleHitSound != null)
+                grappleHitSound.Play();
 
             joint = gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;

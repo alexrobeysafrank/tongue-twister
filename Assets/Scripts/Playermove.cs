@@ -169,7 +169,7 @@ public class PlayerMove : MonoBehaviour
     /// <summary>
     /// Deducts a life and handles respawn or game over.
     /// </summary>
-    private void LoseLife()
+    public void LoseLife()
     {
         isDead = true;
         currentLives--;
