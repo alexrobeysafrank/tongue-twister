@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class Playagain : MonoBehaviour
 {
+    [SerializeField] private string startSceneName = "Start";
+
     /// <summary>
     /// Loads the start screen scene.
     /// </summary>
     public void PlayAgain()
     {
-        Debug.Log("Button clicked!");
-        SceneManager.LoadScene("Start");
+        Debug.Log("Play Again clicked");
+        SceneManager.LoadScene(startSceneName);
     }
 }
